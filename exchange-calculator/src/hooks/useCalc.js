@@ -7,10 +7,11 @@ export default function useCalc(initialValues) {
     const [total, setTotal] = useState(0);
     const [paidBGN, setPaidBGN] = useState(0);
     const [result, setResult] = useState(undefined);
+    const [isNegative, setNegative] = useState(false)
 
     const calculate = (total, paidBGN) => {
         const currentResult = Number((paidBGN / 1.95583).toFixed(2)) - total
-        setResult(Number(currentResult.toFixed()))
+        setResult(Number(currentResult.toFixed(2)));
     }
 
     const onChange = (e) => {
@@ -27,11 +28,19 @@ export default function useCalc(initialValues) {
         console.log("I'm here");
         calculate(Number(total), Number(paidBGN))
     }, [total, paidBGN])
+    useEffect(() => {
+        if(result >= 0){
+            setNegative(false)
+        } else {
+            setNegative(true)
+        }
+    },[result])
 
     return {
         total,
         paidBGN,
         result,
+        isNegative,
         onChange,
     }
 }

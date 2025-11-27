@@ -1,7 +1,7 @@
 import useCalc from "./hooks/useCalc"
 
 export default function Calculator() {
-    const { onChange, result } = useCalc({ total: 0, paidBGN: 0 })
+    const { onChange, result, isNegative } = useCalc({ total: 0, paidBGN: 0 })
 
     return (
         <>
@@ -14,7 +14,7 @@ export default function Calculator() {
                 </form>
             </div>
             <div className="result-wrapper">
-                <h3>{result}</h3>
+                {isNegative ? <h5>За доплащане: {result}</h5> : <h5>Ресто: {result}EUR</h5>}
             </div>
         </>
     )
