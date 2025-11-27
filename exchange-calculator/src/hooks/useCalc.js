@@ -15,17 +15,17 @@ export default function useCalc(initialValues) {
     }
 
     const onChange = (e) => {
+        setResult(undefined);
         if (e.target.name === "total") {
             setTotal(e.target.value)
         } else if (e.target.name === "paidBGN") {
             setPaidBGN(e.target.value)
         }
-        setResult(undefined);
 
 
     };
     useEffect(() => {
-        console.log("I'm here");
+        console.log(result);
         calculate(Number(total), Number(paidBGN))
     }, [total, paidBGN])
     useEffect(() => {

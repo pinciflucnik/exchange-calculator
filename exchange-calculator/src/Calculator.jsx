@@ -8,13 +8,13 @@ export default function Calculator() {
             <div className="calc-wrapper">
                 <form action="">
                     <label htmlFor="total">Стойност в EUR</label>
-                    <input type="number" id="total" name="total" onChange={onChange}></input>
+                    <input type="number" id="total" name="total" min="0" onChange={onChange}></input>
                     <label htmlFor="paidBGN">Платени в BGN</label>
-                    <input type="number" id="paidBGN" name="paidBGN" onChange={onChange}></input>
+                    <input type="number" id="paidBGN" name="paidBGN" min="0" onChange={onChange}></input>
                 </form>
             </div>
             <div className="result-wrapper">
-                {isNegative ? <h5>За доплащане: {result}</h5> : <h5>Ресто: {result}EUR</h5>}
+                {result == 0 ? <></> : <>{isNegative ? <h5>За доплащане: {result}</h5> : <h5>Ресто: {result}EUR</h5>}</>}
             </div>
         </>
     )
