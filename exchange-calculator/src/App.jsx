@@ -1,7 +1,10 @@
+import Calculator from "./Calculator"
 
 function App() {
   return (
-    <div>Start</div>
+    <div className="wrapper">
+      <Calculator />
+    </div>
   )
 }
 
