@@ -10,12 +10,14 @@ export default function useCalc(initialValues) {
     const [isNegative, setNegative] = useState(false)
 
     const calculate = (total, paidBGN) => {
-        const currentResult = Number((paidBGN / 1.95583).toFixed(2)) - total
-        setResult(Number(currentResult.toFixed(2)));
+        setResult(0);
+        if(total !== 0 && paidBGN !== 0){
+            const currentResult = Number((paidBGN / 1.95583).toFixed(2)) - total
+            setResult(Number(currentResult.toFixed(2)));
+        }
     }
 
     const onChange = (e) => {
-        setResult(undefined);
         if (e.target.name === "total") {
             setTotal(e.target.value)
         } else if (e.target.name === "paidBGN") {
