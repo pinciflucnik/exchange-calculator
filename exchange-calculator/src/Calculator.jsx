@@ -14,7 +14,15 @@ export default function Calculator() {
                 </form>
             </div>
             <div className="result-wrapper">
-                {result == 0 ? <></> : <>{isNegative ? <h3>За доплащане: {result * -1} EUR</h3> : <h3>Ресто: {result} EUR</h3>}</>}
+                {result == 0 ? <></> : <>{isNegative ? 
+                    <>
+                        <h3>За доплащане: {result * -1} EUR</h3>
+                        <h3 className="bgn">или {((result * 1.95583) * -1).toFixed(2)} BGN</h3>
+                    </> 
+                    : <>
+                        <h3>Ресто: {result} EUR</h3>
+                        <h3 className="bgn">или {(result * 1.95583).toFixed(2)} BGN</h3>
+                    </>}</>}
             </div>
         </div>
     )

@@ -49,6 +49,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .result-wrapper{
     padding: 1em 0 2em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 .result-wrapper > h3 {
     padding: 1em;
